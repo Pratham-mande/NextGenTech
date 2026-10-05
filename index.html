@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="NextGenTech - Modern technology solutions for ambitious businesses."
+  />
+
+  <title>NextGenTech | Technology That Moves Business Forward</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            display: ["Manrope", "sans-serif"]
+          },
+          colors: {
+            brand: {
+              blue: "#2563EB",
+              cyan: "#06B6D4",
+              orange: "#F97316",
+              dark: "#020617",
+              slate: "#0F172A"
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Animation + small global styles -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Manrope", sans-serif;
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    .reveal {
+      transform: translateY(45px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-left {
+      transform: translateX(-50px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-right {
+      transform: translateX(50px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-scale {
+      transform: scale(0.9);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible,
+    .reveal-left.is-visible,
+    .reveal-right.is-visible,
+    .reveal-scale.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =========================
+       DELAYS
+    ========================= */
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms;
+    }
+
+    /* =========================
+       FLOATING ANIMATION
+    ========================= */
+
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .floating {
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floatingSlow {
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(8px, -12px);
+      }
+    }
+
+    .floating-slow {
+      animation: floatingSlow 6s ease-in-out infinite;
+    }
+
+    /* =========================
+       GLOW
+    ========================= */
+
+    @keyframes glowPulse {
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.65;
+        transform: scale(1.08);
+      }
+    }
+
+    .glow-animation {
+      animation: glowPulse 5s ease-in-out infinite;
+    }
+
+    /* =========================
+       HERO GRID
+    ========================= */
+
+    .hero-grid {
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+    }
+
+    /* =========================
+       IMAGE HOVER
+    ========================= */
+
+    .image-hover {
+      transition: transform 0.7s ease;
+    }
+
+    .image-wrapper:hover .image-hover {
+      transform: scale(1.06);
+    }
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .service-card {
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        0 25px 60px rgba(2, 6, 23, 0.12);
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn-animation {
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .btn-animation:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.3);
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    #header {
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    /* =========================
+       PROGRESS BAR
+    ========================= */
+
+    #progressBar {
+      transition: width 0.1s linear;
+    }
+
+    /* =========================
+       ACTIVE NAV
+    ========================= */
+
+    .nav-link {
+      position: relative;
+      transition:
+        color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #22d3ee;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* =========================
+       SELECTION
+    ========================= */
+
+    ::selection {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header
+    id="header"
+    class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-md"
+  >
+
+    <div
+      class="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+    >
+
+      <!-- Logo -->
+      <a
+        href="#home"
+        class="flex min-w-0 items-center gap-3"
+      >
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white shadow-lg shadow-blue-500/20"
+        >
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div class="min-w-0">
+          <span
+            class="block truncate font-display text-lg font-extrabold tracking-tight text-white"
+          >
+            NextGenTech
+          </span>
+
+          <span
+            class="hidden text-[10px] uppercase tracking-[0.22em] text-slate-400 sm:block"
+          >
+            Technology Solutions
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav
+        id="navLinks"
+        class="absolute left-0 right-0 top-full hidden flex-col border-t border-white/10 bg-slate-950 px-6 py-6 shadow-2xl lg:static lg:flex lg:flex-row lg:items-center lg:justify-end lg:gap-8 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none"
+      >
+
+        <a
+          href="#home"
+          class="nav-link active py-2 text-sm font-medium text-cyan-400"
+        >
+          Home
+        </a>
+
+        <a
+          href="#services"
+          class="nav-link py-2 text-sm font-medium text-white"
+        >
+          Services
+        </a>
+
+        <a
+          href="#about"
+          class="nav-link py-2 text-sm font-medium text-white"
+        >
+          About
+        </a>
+
+        <a
+          href="#industries"
+          class="nav-link py-2 text-sm font-medium text-white"
+        >
+          Industries
+        </a>
+
+        <a
+          href="#work"
+          class="nav-link py-2 text-sm font-medium text-white"
+        >
+          Work
+        </a>
+
+        <a
+          href="#insights"
+          class="nav-link py-2 text-sm font-medium text-white"
+        >
+          Insights
+        </a>
+
+        <a
+          href="#contact"
+          class="btn-animation mt-3 inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white lg:mt-0"
+        >
+          Let's Talk
+          <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+
+      </nav>
+
+      <!-- Mobile Button -->
+      <button
+        id="menuToggle"
+        type="button"
+        aria-expanded="false"
+        aria-label="Open navigation"
+        class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-white lg:hidden"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+
+    <!-- Reading Progress -->
+    <div
+      class="absolute bottom-0 left-0 h-[2px] w-full bg-white/5"
+    >
+      <div
+        id="progressBar"
+        class="h-full w-0 bg-gradient-to-r from-blue-500 via-cyan-400 to-orange-400"
+      ></div>
+    </div>
+
+  </header>
+
+
+  <main class="overflow-hidden">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section
+      id="home"
+      class="relative isolate overflow-hidden bg-slate-950 pt-32 text-white sm:pt-36 lg:min-h-screen lg:pt-40"
+    >
+
+      <!-- Background -->
+      <div
+        class="hero-grid absolute inset-0 -z-20 opacity-70"
+      ></div>
+
+      <div
+        class="absolute -right-32 top-20 -z-10 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl glow-animation"
+      ></div>
+
+      <div
+        class="absolute -left-32 bottom-10 -z-10 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl"
+      ></div>
+
+
+      <div
+        class="mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:pb-28"
+      >
+
+        <!-- Hero Content -->
+        <div class="min-w-0">
+
+          <div
+            class="reveal inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300"
+          >
+            <span
+              class="h-2 w-2 animate-pulse rounded-full bg-cyan-400"
+            ></span>
+
+            Digital solutions for ambitious businesses
+          </div>
+
+
+          <h1
+            class="reveal delay-100 mt-6 max-w-4xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            Technology that
+            <span
+              class="bg-gradient-to-r from-blue-400 via-cyan-300 to-white bg-clip-text text-transparent"
+            >
+              moves business
+            </span>
+            forward.
+          </h1>
+
+
+          <p
+            class="reveal delay-200 mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg"
+          >
+            We design and build modern digital experiences,
+            scalable platforms, and intelligent technology
+            solutions that help organizations grow faster.
+          </p>
+
+
+          <div
+            class="reveal delay-300 mt-8 flex flex-col gap-4 sm:flex-row"
+          >
+
+            <a
+              href="#contact"
+              class="btn-animation inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-4 font-semibold text-white"
+            >
+              Start a Conversation
+              <i class="fa-solid fa-arrow-right ml-3"></i>
+            </a>
+
+            <a
+              href="#work"
+              class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
+            >
+              Explore Our Work
+            </a>
+
+          </div>
+
+
+          <!-- Hero Stats -->
+          <div
+            class="reveal delay-400 mt-12 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/10 pt-7 sm:grid-cols-4"
+          >
+
+            <div>
+              <div
+                class="font-display text-2xl font-bold text-white"
+              >
+                <span data-count="50" data-suffix="+">0</span>
+              </div>
+
+              <p class="mt-1 text-xs text-slate-400">
+                Projects
+              </p>
+            </div>
+
+            <div>
+              <div
+                class="font-display text-2xl font-bold text-white"
+              >
+                <span data-count="15" data-suffix="+">0</span>
+              </div>
+
+              <p class="mt-1 text-xs text-slate-400">
+                Industries
+              </p>
+            </div>
+
+            <div>
+              <div
+                class="font-display text-2xl font-bold text-white"
+              >
+                <span data-count="98" data-suffix="%">0</span>
+              </div>
+
+              <p class="mt-1 text-xs text-slate-400">
+                Satisfaction
+              </p>
+            </div>
+
+            <div>
+              <div
+                class="font-display text-2xl font-bold text-white"
+              >
+                <span data-count="24" data-suffix="/7">0</span>
+              </div>
+
+              <p class="mt-1 text-xs text-slate-400">
+                Support
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Hero Image -->
+        <div
+          class="reveal-right relative min-w-0"
+        >
+
+          <div
+            class="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-blue-600/20 to-cyan-400/20 blur-2xl"
+          ></div>
+
+          <div
+            class="image-wrapper relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-2 shadow-2xl"
+          >
+
+            <img
+              class="image-hover h-[400px] w-full rounded-[1.5rem] object-cover sm:h-[500px]"
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=85"
+              alt="Technology team collaborating"
+            >
+
+            <!-- Floating Card -->
+            <div
+              class="floating absolute bottom-7 left-7 right-7 rounded-2xl border border-white/10 bg-slate-950/85 p-5 shadow-2xl backdrop-blur-xl"
+            >
+
+              <div class="flex items-start gap-4">
+
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-300"
+                >
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div class="min-w-0">
+                  <p class="text-sm font-semibold text-white">
+                    Built for measurable growth
+                  </p>
+
+                  <p class="mt-1 text-xs leading-5 text-slate-400">
+                    Strategy, design and technology working together.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TRUST BAR
+    ====================================================== -->
+
+    <section
+      class="border-y border-slate-200 bg-white"
+    >
+
+      <div
+        class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 py-7 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
+      >
+
+        <p
+          class="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 lg:text-left"
+        >
+          Technology built around your goals
+        </p>
+
+        <div
+          class="grid grid-cols-2 gap-x-8 gap-y-4 text-center text-sm font-semibold text-slate-500 sm:grid-cols-4 lg:flex lg:items-center lg:gap-10"
+        >
+          <span>INNOVATION</span>
+          <span>SECURITY</span>
+          <span>SCALABILITY</span>
+          <span>PERFORMANCE</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section
+      id="services"
+      class="overflow-hidden bg-white py-24 sm:py-28"
+    >
+
+      <div
+        class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="reveal mx-auto max-w-3xl text-center"
+        >
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.18em] text-blue-600"
+          >
+            What We Do
+          </span>
+
+          <h2
+            class="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
+          >
+            Technology solutions designed for real business outcomes.
+          </h2>
+
+          <p
+            class="mt-5 text-base leading-8 text-slate-600 sm:text-lg"
+          >
+            From digital experiences to scalable platforms,
+            we combine strategy, design and engineering.
+          </p>
+
+        </div>
+
+
+        <div
+          class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+
+          <!-- Card 1 -->
+          <article
+            class="reveal-left service-card min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600"
+            >
+              <i class="fa-solid fa-code text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              Digital Engineering
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              Modern websites, web applications and scalable
+              digital platforms engineered for performance.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+
+          <!-- Card 2 -->
+          <article
+            class="reveal service-card delay-100 min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-50 text-cyan-600"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              Product Design
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              User-focused interfaces and experiences that
+              turn complex ideas into simple products.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+
+          <!-- Card 3 -->
+          <article
+            class="reveal-right service-card delay-200 min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-50 text-orange-500"
+            >
+              <i class="fa-solid fa-brain text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              AI & Automation
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              Intelligent automation and AI-powered workflows
+              that improve efficiency and decision making.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+
+          <!-- Card 4 -->
+          <article
+            class="reveal-left service-card delay-200 min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600"
+            >
+              <i class="fa-solid fa-cloud text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              Cloud Solutions
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              Secure and scalable cloud infrastructure designed
+              to support growing digital operations.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+
+          <!-- Card 5 -->
+          <article
+            class="reveal service-card delay-300 min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600"
+            >
+              <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              Security & Reliability
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              Technology practices focused on reliability,
+              security and long-term maintainability.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+
+          <!-- Card 6 -->
+          <article
+            class="reveal-right service-card delay-400 min-w-0 rounded-3xl border border-slate-200 bg-white p-7"
+          >
+
+            <div
+              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-pink-50 text-pink-600"
+            >
+              <i class="fa-solid fa-chart-pie text-xl"></i>
+            </div>
+
+            <h3
+              class="mt-6 font-display text-xl font-bold text-slate-950"
+            >
+              Data & Insights
+            </h3>
+
+            <p
+              class="mt-3 leading-7 text-slate-600"
+            >
+              Data-driven solutions that turn information into
+              actionable business intelligence.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-6 inline-flex items-center text-sm font-bold text-blue-600"
+            >
+              Learn more
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      id="about"
+      class="overflow-hidden bg-slate-50 py-24 sm:py-28"
+    >
+
+      <div
+        class="mx-auto grid w-full max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8"
+      >
+
+        <!-- Image -->
+        <div
+          class="reveal-left image-wrapper relative min-w-0"
+        >
+
+          <div
+            class="absolute -left-5 -top-5 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl"
+          ></div>
+
+          <div
+            class="relative overflow-hidden rounded-[2rem]"
+          >
+
+            <img
+              class="image-hover h-[430px] w-full object-cover sm:h-[520px]"
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85"
+              alt="Business team working together"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <!-- Experience Card -->
+          <div
+            class="floating absolute -bottom-6 -right-3 rounded-2xl border border-white bg-white p-5 shadow-xl sm:-right-6"
+          >
+
+            <div
+              class="font-display text-3xl font-extrabold text-blue-600"
+            >
+              10+
+            </div>
+
+            <p
+              class="mt-1 text-sm font-semibold text-slate-700"
+            >
+              Years of combined expertise
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Content -->
+        <div class="min-w-0">
+
+          <span
+            class="reveal text-sm font-bold uppercase tracking-[0.18em] text-blue-600"
+          >
+            About NextGenTech
+          </span>
+
+          <h2
+            class="reveal delay-100 mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
+          >
+            We turn ambitious ideas into technology that works.
+          </h2>
+
+          <p
+            class="reveal delay-200 mt-6 leading-8 text-slate-600"
+          >
+            We believe technology should make business simpler,
+            faster and more effective. Our approach combines
+            thoughtful strategy, modern design and reliable
+            engineering.
+          </p>
+
+          <p
+            class="reveal delay-300 mt-4 leading-8 text-slate-600"
+          >
+            Every solution is designed around real business
+            needs rather than technology for technology's sake.
+          </p>
+
+
+          <div
+            class="reveal delay-400 mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2"
+          >
+
+            <div class="flex gap-4">
+              <div
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600"
+              >
+                <i class="fa-solid fa-check"></i>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-slate-950">
+                  Business First
+                </h3>
+
+                <p class="mt-1 text-sm leading-6 text-slate-600">
+                  Technology aligned with business objectives.
+                </p>
+              </div>
+            </div>
+
+
+            <div class="flex gap-4">
+              <div
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-100 text-cyan-600"
+              >
+                <i class="fa-solid fa-check"></i>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-slate-950">
+                  Built to Scale
+                </h3>
+
+                <p class="mt-1 text-sm leading-6 text-slate-600">
+                  Solutions ready for future growth.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INDUSTRIES
+    ====================================================== -->
+
+    <section
+      id="industries"
+      class="overflow-hidden bg-white py-24 sm:py-28"
+    >
+
+      <div
+        class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="reveal max-w-3xl"
+        >
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.18em] text-blue-600"
+          >
+            Industries
+          </span>
+
+          <h2
+            class="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"
+          >
+            Technology for the industries shaping tomorrow.
+          </h2>
+
+        </div>
+
+
+        <div
+          class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
+        >
+
+          <div
+            class="reveal-scale rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-building text-2xl text-blue-600"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Real Estate
+            </p>
+          </div>
+
+          <div
+            class="reveal-scale delay-100 rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-heart-pulse text-2xl text-rose-500"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Healthcare
+            </p>
+          </div>
+
+          <div
+            class="reveal-scale delay-200 rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-cart-shopping text-2xl text-orange-500"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Retail
+            </p>
+          </div>
+
+          <div
+            class="reveal-scale delay-300 rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-industry text-2xl text-slate-700"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Manufacturing
+            </p>
+          </div>
+
+          <div
+            class="reveal-scale delay-400 rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-coins text-2xl text-emerald-600"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Finance
+            </p>
+          </div>
+
+          <div
+            class="reveal-scale delay-500 rounded-2xl border border-slate-200 p-5 text-center transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <i class="fa-solid fa-truck-fast text-2xl text-cyan-600"></i>
+            <p class="mt-3 text-sm font-bold text-slate-800">
+              Logistics
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         APPROACH
+    ====================================================== -->
+
+    <section
+      class="overflow-hidden bg-slate-950 py-24 text-white sm:py-28"
+    >
+
+      <div
+        class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="reveal mx-auto max-w-3xl text-center"
+        >
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.18em] text-cyan-400"
+          >
+            Our Approach
+          </span>
+
+          <h2
+            class="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl"
+          >
+            Simple process. Serious results.
+          </h2>
+
+        </div>
+
+
+        <div
+          class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+        >
+
+          <div
+            class="reveal-left rounded-3xl border border-white/10 bg-white/[0.04] p-7"
+          >
+            <span class="text-5xl font-extrabold text-blue-500/30">
+              01
+            </span>
+
+            <h3 class="mt-5 text-xl font-bold">
+              Discover
+            </h3>
+
+            <p class="mt-3 leading-7 text-slate-400">
+              Understand the business, users and challenges.
+            </p>
+          </div>
+
+
+          <div
+            class="reveal delay-100 rounded-3xl border border-white/10 bg-white/[0.04] p-7"
+          >
+            <span class="text-5xl font-extrabold text-cyan-500/30">
+              02
+            </span>
+
+            <h3 class="mt-5 text-xl font-bold">
+              Design
+            </h3>
+
+            <p class="mt-3 leading-7 text-slate-400">
+              Create an experience that is clear and intuitive.
+            </p>
+          </div>
+
+
+          <div
+            class="reveal delay-200 rounded-3xl border border-white/10 bg-white/[0.04] p-7"
+          >
+            <span class="text-5xl font-extrabold text-orange-500/30">
+              03
+            </span>
+
+            <h3 class="mt-5 text-xl font-bold">
+              Build
+            </h3>
+
+            <p class="mt-3 leading-7 text-slate-400">
+              Engineer a reliable and scalable solution.
+            </p>
+          </div>
+
+
+          <div
+            class="reveal-right delay-300 rounded-3xl border border-white/10 bg-white/[0.04] p-7"
+          >
+            <span class="text-5xl font-extrabold text-emerald-500/30">
+              04
+            </span>
+
+            <h3 class="mt-5 text-xl font-bold">
+              Grow
+            </h3>
+
+            <p class="mt-3 leading-7 text-slate-400">
+              Optimize, measure and continuously improve.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WORK
+    ====================================================== -->
+
+    <section
+      id="work"
+      class="overflow-hidden bg-slate-50 py-24 sm:py-28"
+    >
+
+      <div
+        class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="reveal flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"
+        >
+
+          <div class="max-w-3xl">
+
+            <span
+              class="text-sm font-bold uppercase tracking-[0.18em] text-blue-600"
+            >
+              Selected Work
+            </span>
+
+            <h2
+              class="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"
+            >
+              Digital products built with purpose.
+            </h2>
+
+          </div>
+
+          <a
+            href="#contact"
+            class="inline-flex shrink-0 items-center text-sm font-bold text-blue-600"
+          >
+            Discuss your project
+            <i class="fa-solid fa-arrow-right ml-2"></i>
+          </a>
+
+        </div>
+
+
+        <div
+          class="mt-12 grid grid-cols-1 gap-7 lg:grid-cols-2"
+        >
+
+          <!-- Project -->
+          <article
+            class="reveal-left group min-w-0 overflow-hidden rounded-[2rem] bg-white shadow-sm"
+          >
+
+            <div
+              class="image-wrapper relative overflow-hidden"
+            >
+
+              <img
+                class="image-hover h-72 w-full object-cover sm:h-80"
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
+                alt="Business technology project"
+                loading="lazy"
+              >
+
+              <div
+                class="absolute left-5 top-5 rounded-full bg-slate-950/80 px-4 py-2 text-xs font-semibold text-white backdrop-blur"
+              >
+                Digital Transformation
+              </div>
+
+            </div>
+
+            <div class="p-7">
+
+              <h3
+                class="font-display text-2xl font-bold text-slate-950"
+              >
+                Enterprise Digital Platform
+              </h3>
+
+              <p
+                class="mt-3 leading-7 text-slate-600"
+              >
+                A modern platform designed to simplify
+                operations and create a better digital experience.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  UX
+                </span>
+
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  Web
+                </span>
+
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  Analytics
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Project -->
+          <article
+            class="reveal-right group min-w-0 overflow-hidden rounded-[2rem] bg-white shadow-sm"
+          >
+
+            <div
+              class="image-wrapper relative overflow-hidden"
+            >
+
+              <img
+                class="image-hover h-72 w-full object-cover sm:h-80"
+                src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85"
+                alt="Technology team meeting"
+                loading="lazy"
+              >
+
+              <div
+                class="absolute left-5 top-5 rounded-full bg-slate-950/80 px-4 py-2 text-xs font-semibold text-white backdrop-blur"
+              >
+                AI & Automation
+              </div>
+
+            </div>
+
+            <div class="p-7">
+
+              <h3
+                class="font-display text-2xl font-bold text-slate-950"
+              >
+                Intelligent Business Operations
+              </h3>
+
+              <p
+                class="mt-3 leading-7 text-slate-600"
+              >
+                Automated workflows and intelligent insights
+                designed to help teams work smarter.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  AI
+                </span>
+
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  Automation
+                </span>
+
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  Data
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INSIGHTS
+    ====================================================== -->
+
+    <section
+      id="insights"
+      class="overflow-hidden bg-white py-24 sm:py-28"
+    >
+
+      <div
+        class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+
+        <div
+          class="reveal text-center"
+        >
+
+          <span
+            class="text-sm font-bold uppercase tracking-[0.18em] text-blue-600"
+          >
+            Insights
+          </span>
+
+          <h2
+            class="mt-4 font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"
+          >
+            Ideas for a digital-first future.
+          </h2>
+
+        </div>
+
+
+        <div
+          class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3"
+        >
+
+          <article
+            class="reveal-left service-card overflow-hidden rounded-3xl border border-slate-200 bg-white"
+          >
+
+            <div class="image-wrapper overflow-hidden">
+              <img
+                class="image-hover h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85"
+                alt="Digital strategy"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="p-6">
+
+              <p class="text-xs font-bold uppercase tracking-wider text-blue-600">
+                Strategy
+              </p>
+
+              <h3 class="mt-3 text-xl font-bold text-slate-950">
+                Building technology around business outcomes
+              </h3>
+
+              <p class="mt-3 text-sm leading-6 text-slate-600">
+                Why successful digital initiatives begin with
+                the right business questions.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="reveal service-card delay-100 overflow-hidden rounded-3xl border border-slate-200 bg-white"
+          >
+
+            <div class="image-wrapper overflow-hidden">
+              <img
+                class="image-hover h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+                alt="Artificial intelligence technology"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="p-6">
+
+              <p class="text-xs font-bold uppercase tracking-wider text-cyan-600">
+                Technology
+              </p>
+
+              <h3 class="mt-3 text-xl font-bold text-slate-950">
+                Where AI can create practical business value
+              </h3>
+
+              <p class="mt-3 text-sm leading-6 text-slate-600">
+                Moving beyond the hype and focusing on
+                useful applications of intelligent technology.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="reveal-right service-card delay-200 overflow-hidden rounded-3xl border border-slate-200 bg-white"
+          >
+
+            <div class="image-wrapper overflow-hidden">
+              <img
+                class="image-hover h-56 w-full object-cover"
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=85"
+                alt="Business analytics"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="p-6">
+
+              <p class="text-xs font-bold uppercase tracking-wider text-orange-600">
+                Growth
+              </p>
+
+              <h3 class="mt-3 text-xl font-bold text-slate-950">
+                Designing digital experiences people trust
+              </h3>
+
+              <p class="mt-3 text-sm leading-6 text-slate-600">
+                Creating simple, reliable experiences that
+                keep users engaged.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section
+      class="overflow-hidden bg-gradient-to-r from-blue-700 to-cyan-600 py-20 text-white"
+    >
+
+      <div
+        class="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8"
+      >
+
+        <div
+          class="reveal max-w-2xl"
+        >
+
+          <h2
+            class="font-display text-3xl font-extrabold sm:text-4xl"
+          >
+            Have a challenge worth solving?
+          </h2>
+
+          <p class="mt-4 leading-7 text-blue-50">
+            Let's build something meaningful together.
+          </p>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="reveal-right btn-animation inline-flex shrink-0 items-center rounded-full bg-white px-7 py-4 font-bold text-blue-700"
+        >
+          Let's Talk
+          <i class="fa-solid fa-arrow-right ml-3"></i>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+      id="contact"
+      class="overflow-hidden bg-slate-950 py-24 text-white sm:py-28"
+    >
+
+      <div
+        class="mx-auto grid w-full max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8"
+      >
+
+        <!-- Contact info -->
+        <div class="min-w-0">
+
+          <span
+            class="reveal text-sm font-bold uppercase tracking-[0.18em] text-cyan-400"
+          >
+            Contact
+          </span>
+
+          <h2
+            class="reveal delay-100 mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-5xl"
+          >
+            Let's create what's next.
+          </h2>
+
+          <p
+            class="reveal delay-200 mt-6 max-w-xl leading-8 text-slate-400"
+          >
+            Tell us about your business challenge, idea or
+            project. We'll explore how technology can help.
+          </p>
+
+
+          <div class="mt-10 space-y-5">
+
+            <div
+              class="reveal-left delay-200 flex items-center gap-4"
+            >
+
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/5 text-cyan-400"
+              >
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-500">
+                  Email
+                </p>
+
+                <p class="mt-1 font-medium text-white">
+                  hello@nextgentech.com
+                </p>
+              </div>
+
+            </div>
+
+
+            <div
+              class="reveal-left delay-300 flex items-center gap-4"
+            >
+
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/5 text-cyan-400"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-500">
+                  Location
+                </p>
+
+                <p class="mt-1 font-medium text-white">
+                  United States
+                </p>
+              </div>
+
+            </div>
+
+
+            <div
+              class="reveal-left delay-400 flex items-center gap-4"
+            >
+
+              <div
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/5 text-cyan-400"
+              >
+                <i class="fa-solid fa-clock"></i>
+              </div>
+
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-500">
+                  Response
+                </p>
+
+                <p class="mt-1 font-medium text-white">
+                  Within 1 business day
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Form -->
+        <div
+          class="reveal-right min-w-0 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8"
+        >
+
+          <form
+            id="contactForm"
+            novalidate
+            class="space-y-5"
+          >
+
+            <div
+              class="grid grid-cols-1 gap-5 sm:grid-cols-2"
+            >
+
+              <div>
+                <label
+                  for="name"
+                  class="mb-2 block text-sm font-medium text-slate-300"
+                >
+                  Name
+                </label>
+
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white outline-none placeholder:text-slate-500 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+                >
+              </div>
+
+
+              <div>
+                <label
+                  for="email"
+                  class="mb-2 block text-sm font-medium text-slate-300"
+                >
+                  Email
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white outline-none placeholder:text-slate-500 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+                >
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <label
+                for="company"
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                Company
+              </label>
+
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder="Company name"
+                class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white outline-none placeholder:text-slate-500 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+              >
+
+            </div>
+
+
+            <div>
+
+              <label
+                for="message"
+                class="mb-2 block text-sm font-medium text-slate-300"
+              >
+                Tell us about your project
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="What are you looking to build?"
+                class="w-full resize-y rounded-xl border border-white/10 bg-white/5 px-4 py-3.5 text-white outline-none placeholder:text-slate-500 transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+              ></textarea>
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn-animation w-full rounded-xl bg-blue-600 px-6 py-4 font-bold text-white hover:bg-blue-500"
+            >
+              Send Message
+              <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+
+
+            <p
+              id="formMessage"
+              class="hidden text-center text-sm"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer
+    class="border-t border-white/10 bg-slate-950 text-slate-400"
+  >
+
+    <div
+      class="mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"
+    >
+
+      <div>
+        <p class="font-display font-bold text-white">
+          NextGenTech
+        </p>
+
+        <p class="mt-1 text-xs">
+          Technology that moves business forward.
+        </p>
+      </div>
+
+
+      <p class="text-xs">
+        © <span id="year"></span> NextGenTech. All rights reserved.
+      </p>
+
+    </div>
+
+    <div
+      class="border-t border-white/5 px-4 py-5 text-center text-[11px] leading-5 text-slate-600"
+    >
+      Website content, metrics and portfolio examples are
+      illustrative and should be replaced with verified company
+      information before publishing.
+    </div>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
